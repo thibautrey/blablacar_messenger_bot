@@ -30,8 +30,7 @@ app.get('/webhook', function(req, res) {
 
         res.sendStatus(200);
     }else{
-        if (req.query['hub.mode'] === 'subscribe' &&
-        req.query['hub.verify_token'] === "QYKLKbipwgVXYTuwXMQxwq7uqz") {
+        if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === "QYKLKbipwgVXYTuwXMQxwq7uqz") {
             console.log("Validating webhook");
             res.status(200).send(req.query['hub.challenge']);
         } else {
