@@ -9,6 +9,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/webhook', function(req, res) {
+    console.log(req);
     var data = req.body;
 
     // Make sure this is a page subscription
