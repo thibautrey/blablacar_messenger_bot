@@ -1,0 +1,9 @@
+{
+  "name": "BlablaCarMessengerBot",
+  "version": "1.0.0",
+  "description": "A messenger bot to book a ride on BlablaCar",
+  "main": "index.js",
+  "repository": "git@github.com:thibautrey/blablacar_messenger_bot.git",
+  "author": "Thibaut Rey",
+  "license": "MIT"
+}
