@@ -9,7 +9,16 @@ app.get('/', function(request, response) {
 });
 
 app.get('/webhook', function(req, res) {
-    console.log(req);
+    if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === "QYKLKbipwgVXYTuwXMQxwq7uqz") {
+        console.log("Validating webhook");
+        res.status(200).send(req.query['hub.challenge']);
+    } else {
+        console.error("Failed validation. Make sure the validation tokens match.");
+        res.sendStatus(403);
+    }
+});
+
+app.post('/webhook', function(req, res){
     var data = req.body;
 
     // Make sure this is a page subscription
@@ -30,14 +39,6 @@ app.get('/webhook', function(req, res) {
         });
 
         res.sendStatus(200);
-    }else{
-        if (req.query['hub.mode'] === 'subscribe' && req.query['hub.verify_token'] === "QYKLKbipwgVXYTuwXMQxwq7uqz") {
-            console.log("Validating webhook");
-            res.status(200).send(req.query['hub.challenge']);
-        } else {
-            console.error("Failed validation. Make sure the validation tokens match.");
-            res.sendStatus(403);
-        }
     }
 });
 
