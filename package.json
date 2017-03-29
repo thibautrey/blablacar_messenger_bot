@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:thibautrey/blablacar_messenger_bot.git",
   "author": "Thibaut Rey",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
